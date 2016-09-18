@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20160916120254) do
   end
 
   create_table "bots", force: :cascade do |t|
-    t.string   "steam_id",   null: false
-    t.integer  "account_id", null: false
+    t.string "steam_id", null: false
+    t.integer "account_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_bots_on_account_id", using: :btree
@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 20160916120254) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.text     "raw",        null: false
-    t.integer  "bot_id",     null: false
-    t.integer  "game_id",    null: false
+    t.text "raw"
+    t.integer "bot_id", null: false
+    t.integer "game_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bot_id"], name: "index_items_on_bot_id", using: :btree
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 20160916120254) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",      null: false
-    t.integer  "account_id"
+    t.string "email", null: false
+    t.integer "account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_users_on_account_id", using: :btree
