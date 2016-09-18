@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-  belongs_to :account
+  include Clearance::User
+
+  belongs_to :account, optional: true
 
   validates :email, presence: true
 end

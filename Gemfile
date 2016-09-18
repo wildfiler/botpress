@@ -7,6 +7,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'pg'
 gem 'haml'
+gem 'clearance'
 
 group :development, :test do
   gem 'byebug', platform: :mri
