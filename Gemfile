@@ -8,8 +8,10 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'haml'
 gem 'clearance'
+gem 'httparty'
 
 group :development, :test do
+  gem 'pry'
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails'
