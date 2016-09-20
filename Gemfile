@@ -13,6 +13,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails'
+  gem 'pry'
 end
 
 group :development do
@@ -27,4 +28,5 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl'
   gem 'shoulda'
+  gem 'capybara'
 end
