@@ -1,0 +1,9 @@
+.game
+  %h1 Game page
+  = @game.page.id
+  .items_list
+    %h3 Items
+    %ul
+    = @game.items do |item|
+      %li.item
+        item.id

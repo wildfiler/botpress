@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :games, only: [:show]
+
   scope module: 'clearance' do
     resources :passwords, only: [:create, :new]
     resource :session, only: [:create]
