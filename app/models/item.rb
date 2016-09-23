@@ -8,6 +8,8 @@ class Item < ApplicationRecord
 
   serialize :raw, JSON
 
+  scope :last_ten, -> { order(created_at: :desc).first(10) }
+
   def icon_url
     "#{IMAGE_URL}#{raw['icon_url']}"
   end

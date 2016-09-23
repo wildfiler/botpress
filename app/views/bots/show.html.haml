@@ -1,0 +1,10 @@
+%h1
+  Bot #{@bot.id}
+.games_list
+  - @bot.games.each do |game|
+    %h3= game.name
+    %h4 Last ten items
+    %ul.items
+      - game.items.last_ten.each do |item|
+        %li.item
+          %h2= item.id
