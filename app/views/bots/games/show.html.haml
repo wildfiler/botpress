@@ -1,0 +1,9 @@
+%h1
+  Bot #{@bot.id}
+%h3
+  = @game.name
+%ul.items
+  - @game.items.each do |item|
+    %li.item
+      %h2= item.id
+      = item.game.name
