@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   resources :games, only: [:show]
+
   resources :bots, only: [:show] do
     resources :games, only: [:show], module: 'bots'
   end
+
+  resources :accounts, only: [:show]
 
   scope module: 'clearance' do
     resources :passwords, only: [:create, :new]

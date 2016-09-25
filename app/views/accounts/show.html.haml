@@ -1,0 +1,11 @@
+%h1.account_name
+  Account #{@account.id}
+  .games_list
+    - @account.games.each do |game|
+      %h3.game_name
+        = game.name
+      %h4 Last ten items
+      %ul.items
+        - game.items.last_ten.each do |item|
+          %li.item
+            = item.id
