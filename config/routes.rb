@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :games, only: [:show], module: 'bots'
   end
 
-  resources :accounts, only: [:show]
+  resources :accounts, only: [:show] do
+    resources :games, only: [:show], module: 'accounts'
+  end
 
   scope module: 'clearance' do
     resources :passwords, only: [:create, :new]
