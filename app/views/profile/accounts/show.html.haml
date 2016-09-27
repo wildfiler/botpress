@@ -1,0 +1,6 @@
+%h1.account_name
+  = @account.id
+%ul.bots_list
+  = @account.bots.each do |bot|
+    %li.bot
+      = bot.id

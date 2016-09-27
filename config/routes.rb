@@ -23,7 +23,10 @@ Rails.application.routes.draw do
   end
 
   resource :profile, only: [:show] do
-    resource :password, only: [:update], module: :profile
+    scope module: 'profile' do
+      resource :password, only: [:update]
+      resource :account, only: [:show]
+    end
   end
 
   root 'home#index'
