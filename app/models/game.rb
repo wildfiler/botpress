@@ -7,4 +7,5 @@ class Game < ApplicationRecord
   friendly_id :name, use: :slugged
 
   scope :published, -> { where(published: true) }
+  scope :ordered, -> { order(name: :asc) }
 end

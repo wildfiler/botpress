@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   IMAGE_URL = 'https://steamcommunity-a.akamaihd.net/economy/image/'.freeze
 
-  belongs_to :game
+  belongs_to :game, counter_cache: true
   belongs_to :bot
 
   validates :bot_id, :game_id, presence: true

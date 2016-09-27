@@ -1,1 +1,10 @@
-Root!
+.games_list
+  - @games.each do |game|
+    %h3.game_name
+      = game.name
+      %ul.items_list
+        - game.items.last_ten.each do |item|
+          %li.item
+            = item.id
+      .items_total
+        Total: #{pluralize(game.items.size, 'item')}

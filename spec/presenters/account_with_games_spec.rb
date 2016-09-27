@@ -12,7 +12,8 @@ describe AccountWithGames do
 
     account_with_games = AccountWithGames.new(account)
 
-    game = account_with_games.games.first
-    expect(game.items).to match_array([bot1_item, bot2_item])
+    game_from_account = account_with_games.games.detect { |i| i[:id] = game.id }
+
+    expect(game_from_account.items).to match_array([bot1_item, bot2_item])
   end
 end
