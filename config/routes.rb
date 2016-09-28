@@ -29,5 +29,6 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/:id', to: 'games#show', as: :root_game
   root 'home#index'
 end

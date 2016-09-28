@@ -9,6 +9,7 @@ gem 'pg'
 gem 'haml'
 gem 'clearance'
 gem 'httparty'
+gem 'friendly_id'
 
 group :development, :test do
   gem 'pry'

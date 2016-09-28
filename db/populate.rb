@@ -18,6 +18,6 @@ bots_steam_ids.each_slice(3).each_with_index do |steam_ids, index|
   )
 
   steam_ids.each do |steam_id|
-    Bot.create!(steam_id: steam_id, account: account)
+    Bot.create!(steam_id: steam_id, account: account, name: "Bot #{steam_id}")
   end
 end
