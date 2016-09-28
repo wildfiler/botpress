@@ -10,15 +10,15 @@ describe 'user visit account page' do
 
     visit account_path(account)
 
-    expect(page).to have_css('.account_name', account.id)
-    expect(page).to have_css('.games_list', game.name)
+    expect(page).to have_css('.account_name', text: account.id)
+    expect(page).to have_css('.games_list', text: game.name)
     bot_content(bot1_items)
     bot_content(bot2_items)
   end
 
   def bot_content(items)
     items.each do |item|
-      expect(page).to have_css('.item', item.id)
+      expect(page).to have_css('.item', text: item.id)
     end
   end
 end
