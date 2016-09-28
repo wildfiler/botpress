@@ -1,15 +1,21 @@
 class SteamImporter
-  def initialize(bots, fetcher: Steam::Fetcher.new)
-    @bots = bots
+  def initialize(bots, fetcher: Steam::Fetcher.new, verbose: false)
+    @bots = Array(bots)
     @fetcher = fetcher
+    @verbose = verbose
   end
 
   def import
+    Rails.logger.info 'Import started' if verbose?
+
     ActiveRecord::Base.transaction do
       @games = Game.published
 
       @bots.each do |bot|
+        Rails.logger.info "Importing bot(#{bot.steam_id})..." if verbose?
+
         @games.each do |game|
+          Rails.logger.info "Items for #{game.name}..." if verbose?
           items = @fetcher.get(bot.steam_id, game.app_id)
 
           bot_items = bot.items.select { |item| item.game_id == game.id }
@@ -25,6 +31,8 @@ class SteamImporter
       end
     end
   end
+
+  private
 
   def create_new_items(bot, game, items, bot_items_ids)
     items.each do |item|
@@ -45,5 +53,9 @@ class SteamImporter
     bot_items.each do |bot_item|
       bot_item.destroy if items_ids.exclude?(bot_item.steam_id)
     end
+  end
+
+  def verbose?
+    @verbose
   end
 end

@@ -16,7 +16,7 @@ module Steam
         next if raw_description['tradable'] != 1
         item['raw'] = raw_description
         item
-      end
+      end.compact
     end
   end
 end

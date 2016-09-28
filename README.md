@@ -1,24 +1,21 @@
-# README
+# Setting up development environment
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Clone repository
 
-Things you may want to cover:
+2. Execute `bin/setup`
 
-* Ruby version
+3. Execute `bin/rails db:populate`
 
-* System dependencies
+4. Execute `bin/rails server`
 
-* Configuration
+# Importing items from bots
 
-* Database creation
+Use rake task `data:bot:import` for importing items
 
-* Database initialization
+Task can do next three type of import
 
-* How to run the test suite
+* Import all bot: just run task with no arguments
 
-* Services (job queues, cache servers, search engines, etc.)
+* Import one bot: `rails data:bot:import[bot,<id>]`
 
-* Deployment instructions
-
-* ...
+* Import all bots from account: `rails data:bot:import[account,<id>]`
