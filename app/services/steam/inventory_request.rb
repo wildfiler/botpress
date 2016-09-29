@@ -15,6 +15,7 @@ module Steam
       url = STEAM_PROFILE_URL % { id: id, app_id: app_id, app_context: app_context }
       response = @client.get(url)
 
+      raise TooManyRequests if response.code == 429
       raise WrongResponse unless response.code == 200
 
       response.parsed_response

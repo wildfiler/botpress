@@ -4,4 +4,6 @@ module Steam
   APP_ID_DOTA2 = 570
 
   MAIN_CONTEXT_ID = 2
+
+  class TooManyRequests < StandardError; end
 end

@@ -31,6 +31,16 @@ describe Steam::InventoryRequest, :focus do
     end.to raise_error(Steam::InventoryRequest::WrongResponse)
   end
 
+  it 'raises TooManyRequests error if server respond with 429' do
+    http_client = create_http_client(code: 429)
+
+    fetcher = Steam::InventoryRequest.new(client: http_client)
+
+    expect do
+      fetcher.get('ID', 'APP_ID', 'APP_CONTEXT')
+    end.to raise_error(Steam::TooManyRequests)
+  end
+
   def create_http_client(response: nil, code: 200)
     double(:http_client).tap do |http_client|
       http_response = double(:http_response, code: code, parsed_response: response)
