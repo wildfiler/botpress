@@ -1,5 +1,6 @@
 %h1.account_name
   = @account.id
+  = link_to 'Add bot to account', new_profile_bot_path
 %ul.bots_list
   = @account.bots.each do |bot|
     %li.bot

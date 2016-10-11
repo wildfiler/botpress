@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     scope module: 'profile' do
       resource :password, only: [:update]
       resource :account, only: [:show]
+      resources :bots, only: [:new, :create]
     end
   end
 
