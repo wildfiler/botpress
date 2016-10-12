@@ -10,6 +10,7 @@ gem 'haml'
 gem 'clearance'
 gem 'httparty'
 gem 'friendly_id'
+gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'pry'
