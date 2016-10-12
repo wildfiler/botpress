@@ -4,6 +4,6 @@
   .items_list
     %h3 Items
     %ul
-    = @game.items do |item|
+    = @game.items.each do |item|
       %li.item
-        item.id
+        = item.id
