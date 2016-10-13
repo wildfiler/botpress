@@ -8,13 +8,13 @@ class SteamImporter
   def import
     Rails.logger.info 'Import started' if verbose?
 
-    ActiveRecord::Base.transaction do
-      @games = Game.published
+    @games = Game.published
 
-      @bots.each do |bot|
-        Rails.logger.info "Importing bot(#{bot.steam_id})..." if verbose?
+    @bots.each do |bot|
+      Rails.logger.info "Importing bot(#{bot.steam_id})..." if verbose?
 
-        @games.each do |game|
+      @games.each do |game|
+        ActiveRecord::Base.transaction do
           Rails.logger.info "Items for #{game.name}..." if verbose?
           items = @fetcher.get(bot.steam_id, game.app_id)
 
@@ -25,9 +25,9 @@ class SteamImporter
           delete_old_items(bot_items, items_ids)
 
           create_new_items(bot, game, items, bot_items_ids)
+          bot.save!
         end
 
-        bot.save!
       end
     end
   end
