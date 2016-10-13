@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928182947) do
+ActiveRecord::Schema.define(version: 20161013103937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,14 @@ ActiveRecord::Schema.define(version: 20160928182947) do
     t.string "classid"
     t.string "instanceid"
     t.string "amount"
+    t.string "name"
+    t.string "market_hash_name"
+    t.text "description"
+    t.string "icon_url"
+    t.string "icon_large_url"
+    t.string "type"
+    t.string "name_color"
+    t.string "background_color"
     t.index ["bot_id"], name: "index_items_on_bot_id", using: :btree
     t.index ["game_id"], name: "index_items_on_game_id", using: :btree
   end

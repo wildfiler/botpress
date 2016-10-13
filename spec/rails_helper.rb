@@ -9,6 +9,7 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'clearance/rspec'
+require 'shoulda/matchers'
 
 Dir[File.dirname(__FILE__) + "/support/**/*.rb"].each {|f| require f }
 

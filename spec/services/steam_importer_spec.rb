@@ -10,7 +10,9 @@ describe SteamImporter do
       'classid' => '2',
       'instanceid' => '3',
       'amount' => '1',
-      'raw' => 'raw'
+      'raw' => {
+        'descriptions' => []
+      }
     }
     allow(fetcher).to receive(:get).with(bot.steam_id, game.app_id).and_return([item])
 
@@ -33,7 +35,9 @@ describe SteamImporter do
       'classid' => '2',
       'instanceid' => '3',
       'amount' => '1',
-      'raw' => 'raw'
+      'raw' => {
+        'descriptions' => []
+      }
     }
 
     item2 = {
@@ -41,7 +45,9 @@ describe SteamImporter do
       'classid' => '2',
       'instanceid' => '3',
       'amount' => '1',
-      'raw' => 'raw'
+      'raw' => {
+        'descriptions' => []
+      }
     }
 
     allow(fetcher).to receive(:get).with(bot.steam_id, games.first.app_id).and_return([item1])
@@ -77,7 +83,9 @@ describe SteamImporter do
       'classid' => '2',
       'instanceid' => '3',
       'amount' => '1',
-      'raw' => 'raw'
+      'raw' => {
+        'descriptions' => []
+      }
     }
 
     allow(fetcher).to receive(:get).with(bot.steam_id, game.app_id).and_return([item1, item2])

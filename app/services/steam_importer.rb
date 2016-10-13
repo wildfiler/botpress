@@ -38,14 +38,8 @@ class SteamImporter
     items.each do |item|
       next if bot_items_ids.include?(item['id'])
 
-      bot.items.new(
-        game: game,
-        steam_id: item['id'],
-        classid: item['classid'],
-        instanceid: item['instanceid'],
-        amount: item['amount'],
-        raw: item['raw']
-      )
+      attributes = Steam::ItemAttributes.new(game, item).to_h
+      bot.items.new(attributes)
     end
   end
 
