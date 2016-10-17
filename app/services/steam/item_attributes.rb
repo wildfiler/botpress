@@ -28,7 +28,7 @@ module Steam
         market_hash_name: -> { raw['market_hash_name'] },
         icon_url: -> { raw['icon_url'] },
         icon_large_url: -> { raw['icon_url_large'] },
-        type: -> { raw['type'] },
+        item_type: -> { raw['type'] },
         name_color: -> { raw['name_color'] },
         background_color: -> { raw['background_color'] }
       }
@@ -39,6 +39,7 @@ module Steam
     end
 
     def description(descriptions)
+      return descriptions if descriptions.is_a?(String)
       descriptions.map do |desc|
         color = ''.freeze
         color = "style='color: ##{desc['color']}'" if desc['color']

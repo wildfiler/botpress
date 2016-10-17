@@ -13,7 +13,7 @@ describe Steam::ItemAttributes do
         market_hash_name: double(:market_hash_name),
         icon_url: double(:icon_large_url),
         icon_large_url: double(:icon_large_url),
-        type: double(:type),
+        item_type: double(:item_type),
         name_color: double(:name_color),
         background_color: double(:background_color)
       }
@@ -35,7 +35,7 @@ describe Steam::ItemAttributes do
       market_hash_name: item_hash['raw']['market_hash_name'],
       icon_url: item_hash['raw']['icon_url'],
       icon_large_url: item_hash['raw']['icon_url_large'],
-      type: item_hash['raw']['type'],
+      item_type: item_hash['raw']['type'],
       name_color: item_hash['raw']['name_color'],
       background_color: item_hash['raw']['background_color']
     )

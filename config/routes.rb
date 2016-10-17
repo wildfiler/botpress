@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :games, only: [:show]
+  resources :games, only: [:show] do
+    resources :items, only: [:show]
+  end
 
   resources :bots, only: [:show] do
     resources :games, only: [:show], module: 'bots'

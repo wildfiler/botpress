@@ -1,0 +1,11 @@
+.item
+  .item_icon
+    %img{ src: "#{@item.icon_large_url}" }
+  %h1.item_name{ style: "color: #{@item.name_color}" }
+    = @item.name
+  .game_name
+    = @item.game.name
+  .item_type
+    = @item.item_type
+  .item_description
+    = raw @item.description
