@@ -6,11 +6,19 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
   %body
-    %ul
-      - if signed_in?
-        %li= link_to 'Sign out', sign_out_path, method: :delete
-      - else
-        %li= link_to 'Sign in', sign_in_path
-        %li= link_to 'Sign up', sign_up_path
-    = yield
+    .header
+      .logo
+        = link_to 'BotPress', root_path
+      .navigation
+        %ul.menu
+          %li= link_to 'Games', '#'
+        %ul.login-bar
+          - if signed_in?
+            %li= link_to 'Profile', profile_path
+            %li= link_to 'Sign out', sign_out_path, method: :delete
+          - else
+            %li= link_to 'Sign in', sign_in_path
+            %li= link_to 'Sign up', sign_up_path
+    .content
+      = yield
   = javascript_include_tag 'application'

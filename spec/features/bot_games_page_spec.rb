@@ -10,13 +10,13 @@ describe 'user visit bot game page' do
     other_item = create :item
 
     visit bot_game_path(bot, game)
-    expect(page).to have_content(bot.id)
+    expect(page).to have_content(bot.name)
     expect(page).to have_content(game.name)
     items.each do |item|
-      expect(page).to have_content(item.id)
+      expect(page).to have_content(item.name)
     end
-    expect(page).not_to have_content(not_this_game_item.id)
-    expect(page).not_to have_content(not_this_bot_item.id)
-    expect(page).not_to have_content(other_item.id)
+    expect(page).not_to have_content(not_this_game_item.name)
+    expect(page).not_to have_content(not_this_bot_item.name)
+    expect(page).not_to have_content(other_item.name)
   end
 end

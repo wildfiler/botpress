@@ -2,9 +2,10 @@
   Bot #{@bot.id}
 .games_list
   - @bot.games.each do |game|
-    %h3= game.name
+    %h3= link_to game.name, account_game_path(@bot.account, game)
     %h4 Last ten items
     %ul.items
       - game.items.last_ten.each do |item|
         %li.item
-          %h2= item.id
+          %img{ src: "#{item.icon_thumb_url}" }
+          = link_to item.name, game_item_path(game, item)

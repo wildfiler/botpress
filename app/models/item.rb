@@ -10,12 +10,16 @@ class Item < ApplicationRecord
 
   scope :last_ten, -> { order(created_at: :desc).first(10) }
 
+  def icon_thumb_url
+    "#{icon_large_url}/62fx62f"
+  end
+
   def icon_url
-    "#{IMAGE_URL}#{raw['icon_url']}"
+    "#{IMAGE_URL}#{super}/360fx360f"
   end
 
   def icon_large_url
-    "#{IMAGE_URL}#{raw['icon_url_large']}"
+    "#{IMAGE_URL}#{super}"
   end
 
   def name_color

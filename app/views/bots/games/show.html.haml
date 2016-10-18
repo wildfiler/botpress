@@ -1,9 +1,9 @@
 %h1
-  Bot #{@bot.id}
+  Bot #{@bot.name}
 %h3
   = @game.name
 %ul.items
   - @game.items.each do |item|
     %li.item
-      %h2= item.id
-      = item.game.name
+      %img{ src: "#{item.icon_thumb_url}" }
+      = link_to item.name, game_item_path(@game, item)

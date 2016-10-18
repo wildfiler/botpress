@@ -1,9 +1,10 @@
 .game
-  %h1 Game page
-  = @game.id
+  %h1
+    = @game.name
   .items_list
     %h3 Items
     %ul
-    = @game.items.each do |item|
+    - @game.items.each do |item|
       %li.item
-        = item.id
+        %img{ src: "#{item.icon_thumb_url}" }
+        = link_to item.name, game_item_path(@game, item)

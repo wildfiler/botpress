@@ -18,7 +18,7 @@ describe 'user visit account game page' do
 
   def items_content(items)
     items.each do |item|
-      expect(page).to have_content(item.id)
+      expect(page).to have_content(item.name)
     end
   end
 end

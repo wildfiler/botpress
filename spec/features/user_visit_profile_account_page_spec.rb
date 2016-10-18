@@ -11,7 +11,7 @@ describe 'user visit profile account page' do
 
       expect(page).to have_content(account.id)
       bots.each do |bot|
-        expect(page).to have_content(bot.id)
+        expect(page).to have_content(bot.name)
       end
     end
   end

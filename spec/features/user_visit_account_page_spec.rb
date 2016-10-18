@@ -18,7 +18,7 @@ describe 'user visit account page' do
 
   def bot_content(items)
     items.each do |item|
-      expect(page).to have_css('.item', text: item.id)
+      expect(page).to have_css('.item', text: item.name)
     end
   end
 end

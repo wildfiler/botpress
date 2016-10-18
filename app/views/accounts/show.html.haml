@@ -8,4 +8,5 @@
       %ul.items
         - game.items.last_ten.each do |item|
           %li.item
-            = item.id
+            %img{ src: "#{item.icon_thumb_url}" }
+            = link_to item.name, game_item_path(game, item)
