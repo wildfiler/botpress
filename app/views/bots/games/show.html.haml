@@ -3,7 +3,8 @@
 %h3
   = @game.name
 %ul.items
-  - @game.items.each do |item|
+  - @items.each do |item|
     %li.item
       %img{ src: "#{item.icon_thumb_url}" }
       = link_to item.name, game_item_path(@game, item)
+= will_paginate @items, renderer: BootstrapPagination::Rails

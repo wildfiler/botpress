@@ -4,6 +4,7 @@ module Profile
 
     def show
       @account = current_user.account || Account.new
+      @bots = @account.bots.paginate(page: params[:page])
     end
   end
 end

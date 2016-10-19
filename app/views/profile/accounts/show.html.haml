@@ -4,6 +4,7 @@
   = link_to 'Add bot to account', new_profile_bot_path, class: 'btn-default'
 
 %ul.bots_list
-  - @account.bots.each do |bot|
+  - @bots.each do |bot|
     %li.bot
       = link_to bot.name, bot_path(bot)
+= will_paginate @bots, renderer: BootstrapPagination::Rails
