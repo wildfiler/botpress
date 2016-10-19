@@ -32,6 +32,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :search, only: [:index]
+
   get '/:id', to: 'games#show', as: :root_game
   root 'home#index'
 end

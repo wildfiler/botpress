@@ -10,6 +10,10 @@ class Item < ApplicationRecord
 
   scope :last_ten, -> { order(created_at: :desc).first(10) }
 
+  def self.search(search)
+    where('name LIKE ?', "%#{search}%")
+  end
+
   def icon_thumb_url
     "#{icon_large_url}/62fx62f"
   end
