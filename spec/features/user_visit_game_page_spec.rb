@@ -8,8 +8,8 @@ describe 'user visit account game page' do
 
     visit game_path(game)
     this_game_items.each do |item|
-      expect(page).to have_css('.item', text: item.id)
+      expect(page).to have_css('.item', text: item.name)
     end
-    expect(page).not_to have_css('.item', text: item_from_other_game.id)
+    expect(page).not_to have_css('.item', text: item_from_other_game.name)
   end
 end
