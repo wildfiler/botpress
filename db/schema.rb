@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025105454) do
+ActiveRecord::Schema.define(version: 20161021131733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,22 @@ ActiveRecord::Schema.define(version: 20161025105454) do
     t.index ["slug"], name: "index_bots_on_slug", using: :btree
   end
 
+  create_table "filter_types", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_filter_types_on_game_id", using: :btree
+  end
+
+  create_table "filter_values", force: :cascade do |t|
+    t.string "value", null: false
+    t.integer "filter_type_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["filter_type_id"], name: "index_filter_values_on_filter_type_id", using: :btree
+  end
+
   create_table "games", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,6 +56,15 @@ ActiveRecord::Schema.define(version: 20161025105454) do
     t.integer "items_count", default: 0, null: false
     t.string "slug", null: false
     t.index ["slug"], name: "index_games_on_slug", using: :btree
+  end
+
+  create_table "item_filter_values", force: :cascade do |t|
+    t.integer "item_id", null: false
+    t.integer "filter_value_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["filter_value_id"], name: "index_item_filter_values_on_filter_value_id", using: :btree
+    t.index ["item_id"], name: "index_item_filter_values_on_item_id", using: :btree
   end
 
   create_table "items", force: :cascade do |t|

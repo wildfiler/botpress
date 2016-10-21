@@ -1,0 +1,14 @@
+.items_filters
+  = form_tag game_path(game), method: 'get' do
+    - game.filter_types.each do |type|
+      %h4
+        = type.name
+      - type.filter_values.each do |filter_value|
+        %input{ type: 'checkbox',
+          id: "filter_value_#{filter_value.id}",
+          value: filter_value.id,
+          name: "filter_values[]" }
+        %label{ for: "filter_value_#{filter_value.id}" }
+          = filter_value.value
+        %br
+    %input{ type: 'submit', value: 'Filter' }

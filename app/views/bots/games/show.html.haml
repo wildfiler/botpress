@@ -2,9 +2,10 @@
   Bot #{@bot.name}
 %h3
   = @game.name
+= render partial: 'items/filter', locals: { game: @game }
 %ul.items
-  - @items.each do |item|
+  - @game.items.each do |item|
     %li.item
       %img{ src: "#{item.icon_thumb_url}" }
       = link_to item.name, game_item_path(@game, item)
-= will_paginate @items, renderer: BootstrapPagination::Rails
+= will_paginate @game.items, renderer: BootstrapPagination::Rails

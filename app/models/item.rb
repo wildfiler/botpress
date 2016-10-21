@@ -3,6 +3,8 @@ class Item < ApplicationRecord
 
   belongs_to :game, counter_cache: true
   belongs_to :bot
+  has_many :filter_values, through: :item_filter_values
+  has_many :item_filter_values
 
   validates :bot_id, :game_id, presence: true
 

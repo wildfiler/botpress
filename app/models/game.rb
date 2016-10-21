@@ -1,5 +1,6 @@
 class Game < ApplicationRecord
   has_many :items
+  has_many :filter_types
 
   validates :name, presence: true
 

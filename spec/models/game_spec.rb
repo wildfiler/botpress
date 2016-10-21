@@ -7,5 +7,6 @@ describe Game do
 
   describe 'assocoations' do
     it { is_expected.to have_many(:items) }
+    it { is_expected.to have_many(:filter_types) }
   end
 end
