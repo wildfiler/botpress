@@ -8,10 +8,10 @@
   %body
     .header
       .logo
-        = link_to 'BotPress', root_path
+        BotPress
       .navigation
         %ul.menu
-          %li= link_to 'Games', '#'
+          %li= link_to 'Games', root_path
         %ul.login-bar
           - if signed_in?
             %li= link_to 'Profile', profile_path
