@@ -32,6 +32,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    get '/', to: 'main#show', as: 'index'
+  end
+
   resources :search, only: [:index]
 
   get '/:id', to: 'games#show', as: :root_game
