@@ -1,0 +1,6 @@
+%h1
+  = @user.email
+- if @user.account
+  User's account: #{link_to @user.account.id,'#'}
+- else
+  User has no account

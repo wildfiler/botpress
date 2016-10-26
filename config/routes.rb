@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/', to: 'main#show', as: 'index'
     resources :accounts, only: [:index, :show]
+    resources :users, only: [:index, :show, :new, :create, :edit, :update]
   end
 
   resources :search, only: [:index]
