@@ -1,0 +1,7 @@
+%h1
+  Admin/Bots
+%ul.bots_list
+  - @bots.each do |bot|
+    %li
+      = link_to bot.name
+= will_paginate @bots, renderer: BootstrapPagination::Rails

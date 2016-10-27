@@ -1,0 +1,12 @@
+%h1
+  Admin/bot #{@bot.name}
+Account:
+= link_to @bot.account.name, admin_account_path(@bot.account)
+%br
+Bot Steam ID: #{@bot.steam_id}
+Items in games
+%ul.games_list
+  - @bot.games.each do |game|
+    %li
+      = link_to game.name, game_path(game)
+      Total items: #{game.items.count}

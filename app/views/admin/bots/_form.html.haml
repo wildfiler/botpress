@@ -1,0 +1,9 @@
+= form_for [:admin, bot] do |f|
+  = f.label :steam_id, 'Bot Steam ID'
+  = f.text_field :steam_id
+  = f.label :name,'Bot name'
+  = f.text_field :name
+  = f.label :account
+  = f.select :account_id,
+    options_for_select(options_for_account)
+  = f.submit
