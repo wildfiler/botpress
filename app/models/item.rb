@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   IMAGE_URL = 'https://steamcommunity-a.akamaihd.net/economy/image/'.freeze
+  STEAM_URL = 'https://steamcommunity.com/market/listings/'.freeze
 
   belongs_to :game, counter_cache: true
   belongs_to :bot
@@ -30,5 +31,9 @@ class Item < ApplicationRecord
 
   def name_color
     raw['name_color']
+  end
+
+  def steam_link
+    "#{STEAM_URL}#{game.app_id}/#{market_hash_name}"
   end
 end

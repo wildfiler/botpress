@@ -1,0 +1,14 @@
+%h1
+  Admin/item/#{@item.name}
+.game
+  = @item.game.name
+.description
+  = @item.description
+.icons
+  = link_to 'Large icon', @item.icon_large_url
+  = link_to 'Small icon', @item.icon_url
+.steam_link
+  = link_to 'View at Steam Market', @item.steam_link
+%h3.raw
+  Raw
+= @item.raw

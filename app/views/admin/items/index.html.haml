@@ -1,0 +1,7 @@
+%h1 Admin/Items
+%ul.item.list
+  - @items.each do |item|
+    %li.item
+      %img{ src: "#{item.icon_thumb_url}" }
+      = link_to item.name, admin_item_path(item)
+= will_paginate @items, renderer: BootstrapPagination::Rails

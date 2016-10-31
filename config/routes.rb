@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     get '/', to: 'main#show', as: 'index'
     resources :accounts, only: [:index, :show]
     resources :users, only: [:index, :show, :new, :create, :edit, :update]
+    resources :items, only: [:index, :show]
   end
 
   resources :search, only: [:index]
