@@ -5,8 +5,7 @@ describe 'user visit game page' do
     game = create(:game)
     filter_type = create(:filter_type, game_id: game.id)
     filter_value = create(:filter_value, filter_type_id: filter_type.id)
-    searched_item = create(:item, game: game)
-    searched_item.filter_values = [filter_value]
+    searched_item = create(:item, game: game, filter_values: [filter_value])
     other_item = create(:item, game: game)
     visit game_path(game)
     check(filter_value.value)

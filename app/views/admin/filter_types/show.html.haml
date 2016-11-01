@@ -1,0 +1,9 @@
+%h1
+  = @filter_type.name
+Game: #{@filter_type.game.name}
+Filter values
+%ul.filter_values_list
+  - @filter_type.filter_values.each do |filter_value|
+    %li.filter_value
+      = filter_value.value
+      Total items: #{filter_value.items.size}

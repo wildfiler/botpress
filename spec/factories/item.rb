@@ -13,5 +13,13 @@ FactoryGirl.define do
     sequence(:description) { |n| "<div class='desc'> Item decription##{n} </div>" }
     icon_large_url 'test_large_url'
     icon_url 'test_url'
+
+    transient do
+      filter_values []
+    end
+
+    after(:create) do |item, evaluator|
+      item.filter_values << evaluator.filter_values if evaluator.filter_values.present?
+    end
   end
 end

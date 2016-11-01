@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161021131733) do
+ActiveRecord::Schema.define(version: 20161102113531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20161021131733) do
     t.integer "filter_type_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "items_count", default: 0, null: false
     t.index ["filter_type_id"], name: "index_filter_values_on_filter_type_id", using: :btree
   end
 
