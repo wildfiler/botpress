@@ -12,6 +12,7 @@ module Admin
 
     def new
       @filter_type = FilterType.new
+      @filter_type.filter_values.build
     end
 
     def create
@@ -26,7 +27,12 @@ module Admin
     private
 
     def filter_type_params
-      params.require(:filter_type).permit(:name, :game_id)
+      params.require(:filter_type).permit(:name,
+                                          :game_id,
+                                          filter_values_attributes:[
+                                            :name,
+                                            :filter_type_id
+                                          ])
     end
   end
 end
