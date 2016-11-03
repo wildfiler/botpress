@@ -1,0 +1,7 @@
+%h1 Create filter_value
+= form_for [:admin, @filter_type] do |f|
+  = f.label :name
+  = f.text_field :name
+  = f.label :game
+  = f.select :game_id, options_for_select(Game.all.map { |game| [game.name, game.id] })
+  = f.submit

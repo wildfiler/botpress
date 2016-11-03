@@ -9,5 +9,24 @@ module Admin
     def show
       @filter_type = FilterType.find(params[:id])
     end
+
+    def new
+      @filter_type = FilterType.new
+    end
+
+    def create
+      @filter_type = FilterType.new(filter_type_params)
+      if @filter_type.save
+        redirect_to admin_filter_type_path(@filter_type)
+      else
+        render :new
+      end
+    end
+
+    private
+
+    def filter_type_params
+      params.require(:filter_type).permit(:name, :game_id)
+    end
   end
 end

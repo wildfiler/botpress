@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     resources :accounts, only: [:index, :show]
     resources :users, only: [:index, :show, :new, :create, :edit, :update]
     resources :items, only: [:index, :show]
-    resources :filter_types, only: [:index, :show]
+    resources :filter_types, only: [:index, :show, :new, :create]
   end
 
   resources :search, only: [:index]
