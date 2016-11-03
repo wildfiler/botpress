@@ -19,11 +19,17 @@ describe FilterType do
     end
 
     it 'creates filter_values'do
-      pending
       expect do
         create(:filter_type,
                 filter_values_attributes: [attributes_for(:filter_value)])
       end.to change(FilterValue, :count).by(1)
+    end
+
+    it "won't create filter_value if field is blank"do
+      expect do
+        create(:filter_type,
+                filter_values_attributes: [attributes_for(:filter_value, value: '')])
+      end.not_to change(FilterValue, :count)
     end
   end
 end
