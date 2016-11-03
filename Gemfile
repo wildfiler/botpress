@@ -13,6 +13,7 @@ gem 'friendly_id'
 gem 'bootstrap-sass'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+gem 'coffee-rails'
 
 group :development, :test do
   gem 'pry'
@@ -35,4 +36,5 @@ group :test do
   gem 'factory_girl'
   gem 'shoulda-matchers', require: false
   gem 'capybara'
+  gem 'capybara-webkit'
 end
