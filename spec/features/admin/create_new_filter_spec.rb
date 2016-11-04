@@ -24,8 +24,7 @@ describe 'admin visit admin/filter_type#new page' do
     number_of_filter_values_fields = page.all('.filter_value_field').count
 
     click_on('Add Filter value')
-
-    expect(page).to have_css('filter_value_field',
+    expect(page).to have_css('.filter_value_field',
                              count: number_of_filter_values_fields + 1)
   end
 
