@@ -24,6 +24,19 @@ module Admin
       end
     end
 
+    def edit
+      @filter_type = FilterType.find(params[:id])
+    end
+
+    def update
+      @filter_type = FilterType.find(params[:id])
+      if @filter_type.update(filter_type_params)
+        redirect_to admin_filter_type_path(@filter_type)
+      else
+        render :edit
+      end
+    end
+
     private
 
     def filter_type_params

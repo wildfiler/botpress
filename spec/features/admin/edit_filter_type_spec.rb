@@ -8,11 +8,12 @@ describe 'admin visit admin/filter_type#edit page' do
     new_filter_type_name = 'very new filter_type name'
 
     visit edit_admin_filter_type_path(filter_type, as: create(:user, :admin))
+ 
     fill_in('Name', with: new_filter_type_name)
-    select(new_game)
-    click_on 'Edit Filter type'
+    select(new_game.name)
+    click_on 'Update Filter type'
 
     expect(page).to have_css('.filter_type_name', text: new_filter_type_name)
-    expect(page).to have_content(new_game)
+    expect(page).to have_content(new_game.name)
   end
 end

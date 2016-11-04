@@ -1,0 +1,15 @@
+= form_for [:admin, @filter_type] do |f|
+  = f.label :name
+  = f.text_field :name
+  = f.label :game
+  = f.select :game_id, options_for_select(Game.all.map { |game| [game.name, game.id] })
+  %br
+  %h3 Filter values
+  %br
+  = f.fields_for :filter_values do |filter_value|
+    = render partial: 'admin/filter_types/filter_value_field',
+      locals: { f: filter_value}
+  %br
+  = link_to_add_field 'Add Filter value', f, :filter_values
+  %br
+  = f.submit
