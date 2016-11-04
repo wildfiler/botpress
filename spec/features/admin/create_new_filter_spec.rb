@@ -4,16 +4,19 @@ describe 'admin visit admin/filter_type#new page' do
   it 'can create new filter type' do
     filter_name = 'New filter'
     selected_game = create(:game)
+    filter_value_name = 'new filter value'
     create_list(:game, 2)
 
     visit new_admin_filter_type_path(as: create(:user, :admin))
 
     fill_in 'Name', with: filter_name
     select selected_game.name
+    fill_in 'Value', with: filter_value_name
     click_on 'Create Filter type'
 
     expect(page).to have_css('.filter_type_name', text: filter_name)
     expect(page).to have_content(selected_game.name)
+    expect(page).to have_content(filter_value_name)
   end
 
   it 'can can add filter_value field', js: true do

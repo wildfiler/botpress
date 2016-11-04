@@ -30,8 +30,9 @@ module Admin
       params.require(:filter_type).permit(:name,
                                           :game_id,
                                           filter_values_attributes:[
-                                            :name,
-                                            :filter_type_id
+                                            :value,
+                                            :filter_type_id,
+                                            :_delete
                                           ])
     end
   end
