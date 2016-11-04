@@ -45,7 +45,8 @@ module Admin
                                           filter_values_attributes:[
                                             :value,
                                             :filter_type_id,
-                                            :_delete
+                                            :_destroy,
+                                            :id
                                           ])
     end
   end
