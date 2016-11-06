@@ -5,6 +5,9 @@ module FilterTypeHelper
     fields = f.fields_for(association, new_object, child_index: id) do |builder|
       render(association.to_s.singularize + '_field', f: builder)
     end
-    link_to(name, '#', class: 'add_field', data: { id: id, fields: fields.delete("\n") })
+    link_to(name, '#',
+            class: 'add_field',
+            data: { id: id, fields: fields.delete("\n") }
+           )
   end
 end
