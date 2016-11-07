@@ -42,7 +42,7 @@ module Admin
     def filter_type_params
       params.require(:filter_type).permit(:name,
                                           :game_id,
-                                          filter_values_attributes:[
+                                          filter_values_attributes: [
                                             :value,
                                             :filter_type_id,
                                             :_destroy,

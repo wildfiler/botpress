@@ -31,7 +31,7 @@ describe 'admin visit admin/filter_type#new page' do
                              count: number_of_filter_values_fields + 1)
   end
 
-  it 'can remove filter_value field', js: true  do
+  it 'can remove filter_value field', js: true do
     admin = create(:user, :admin)
     visit new_admin_filter_type_path(as: admin)
     number_of_filter_values_fields = page.all('.filter_value_field').count
