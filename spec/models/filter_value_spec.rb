@@ -3,7 +3,7 @@ require 'rails_helper'
 describe FilterValue do
   describe 'validations' do
     it { is_expected.to validate_presence_of(:value) }
-    it { is_expected.to validate_presence_of(:filter_type_id) }
+    it { is_expected.to validate_presence_of(:filter_type) }
   end
 
   describe 'assocoations' do

@@ -5,5 +5,5 @@ class FilterValue < ApplicationRecord
 
   belongs_to :filter_type
 
-  validates :value, :filter_type_id, presence: true
+  validates :value, :filter_type, presence: true
 end
