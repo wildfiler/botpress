@@ -13,6 +13,7 @@ gem 'friendly_id'
 gem 'bootstrap-sass'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'pry'
