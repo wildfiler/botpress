@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102113531) do
+ActiveRecord::Schema.define(version: 20161109142252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,16 @@ ActiveRecord::Schema.define(version: 20161102113531) do
     t.index ["slug"], name: "index_games_on_slug", using: :btree
   end
 
+  create_table "import_statuses", force: :cascade do |t|
+    t.string "status", null: false
+    t.integer "user_id", null: false
+    t.integer "bot_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bot_id"], name: "index_import_statuses_on_bot_id", using: :btree
+    t.index ["user_id"], name: "index_import_statuses_on_user_id", using: :btree
+  end
+
   create_table "item_filter_values", force: :cascade do |t|
     t.integer "item_id", null: false
     t.integer "filter_value_id", null: false
@@ -105,6 +115,8 @@ ActiveRecord::Schema.define(version: 20161102113531) do
   end
 
   add_foreign_key "bots", "accounts"
+  add_foreign_key "import_statuses", "bots"
+  add_foreign_key "import_statuses", "users"
   add_foreign_key "items", "bots"
   add_foreign_key "items", "games"
   add_foreign_key "users", "accounts"
