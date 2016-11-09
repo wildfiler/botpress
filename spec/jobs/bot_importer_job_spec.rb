@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe BotImporterJob, type: :job do
-  describe "#perform" do
-    it "calls on the SteamImporter" do
+  describe '#perform' do
+    it 'calls on the SteamImporter' do
       bot = double(:bot, id: 1)
       allow(Bot).to receive(:find).and_return(bot)
       expect_any_instance_of(SteamImporter).to receive(:import)
