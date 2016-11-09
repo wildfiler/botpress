@@ -3,6 +3,11 @@ class BotImporterJob < ApplicationJob
 
   def perform(bot_id)
     bot = Bot.find(bot_id)
-    SteamImporter.new(bot).import
+    @importer_class.new(bot).import
+  end
+
+  def initialize(*args, importer_class: SteamImporter)
+    @importer_class = importer_class
+    super(*args)
   end
 end
