@@ -1,5 +1,6 @@
 class Bot < ApplicationRecord
   has_many :items
+  has_many :import_statuses
   belongs_to :account
 
   validates :steam_id, :account_id, :name, presence: true
