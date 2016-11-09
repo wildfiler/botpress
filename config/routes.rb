@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       resource :password, only: [:update]
       resource :account, only: [:show]
       resources :bots, only: [:new, :create]
+      resources :import_bots, only: [:create]
     end
   end
 
