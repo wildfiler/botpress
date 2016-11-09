@@ -1,4 +1,8 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  mount Sidekiq::Web, at: '/sidekiq'
+
   resources :games, only: [:show] do
     resources :items, only: [:show]
   end
@@ -46,4 +50,5 @@ Rails.application.routes.draw do
 
   get '/:id', to: 'games#show', as: :root_game
   root 'home#index'
+
 end
