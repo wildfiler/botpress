@@ -19,7 +19,7 @@ describe 'admin visit admin/filter_type#new page', js: true do
     expect(page).to have_content(filter_value_name)
   end
 
-  it 'can can add filter_value field', js: true do
+  it 'can add filter_value field', js: true do
     admin = create(:user, :admin)
 
     visit new_admin_filter_type_path(as: admin)
