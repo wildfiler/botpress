@@ -1,5 +1,5 @@
 module GameHelper
-  def list_of_games
-    Game.all.map { |game| [game.name, game.id] }
+  def games_options
+    Game.all.pluck(:name, :id)
   end
 end

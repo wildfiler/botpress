@@ -12,7 +12,6 @@ module Admin
 
     def new
       @filter_type = FilterType.new
-      @filter_type.filter_values.build
     end
 
     def create

@@ -7,6 +7,6 @@ module FilterTypeHelper
     end
     link_to(name, '#',
             class: 'add_field',
-            data: { id: id, fields: fields.delete("\n") })
+            data: { id: id, fields: fields })
   end
 end
