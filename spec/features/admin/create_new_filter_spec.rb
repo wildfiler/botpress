@@ -36,9 +36,13 @@ describe 'admin visit admin/filter_type#new page', js: true do
     visit new_admin_filter_type_path(as: admin)
     click_on 'Add Filter value'
     number_of_filter_values_fields = page.all('.filter_value_field').count
+    id = page.find(".filter_value_field").first('input')[:id]
+
+    expect(page).to have_selector(:id, id)
     first('.filter_value_field').click_on('Remove')
 
     expect(page).to have_css('.filter_value_field',
                              count: number_of_filter_values_fields - 1)
+    expect(page).not_to have_selector(:id, id)
   end
 end
