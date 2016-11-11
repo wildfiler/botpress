@@ -1,0 +1,11 @@
+.games_list
+  - @games.each do |game|
+    %h3.game_name
+      = link_to game.name, game_path(game)
+      %ul.items_list
+        - game.items.last_ten.each do |item|
+          %li.item
+            %img{ src: "#{item.icon_thumb_url}" }
+            = link_to item.name, game_item_path(game, item)
+      .items_total
+        Total: #{pluralize(game.items.size, 'item')}

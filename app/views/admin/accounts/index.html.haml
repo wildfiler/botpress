@@ -1,0 +1,7 @@
+%h1
+  Admin/Accounts
+%ul.accounts_list
+  - @accounts.each do |account|
+    %li
+      = link_to account.id, admin_account_path(account)
+= will_paginate @accounts, renderer: BootstrapPagination::Rails

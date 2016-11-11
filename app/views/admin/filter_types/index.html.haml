@@ -1,0 +1,7 @@
+%h1
+  Admin/filter types
+%ul.filter_types_list
+  - @filter_types.each do |filter_type|
+    %li.filter_type
+      = link_to filter_type.name, admin_filter_type_path(filter_type)
+      Total items: #{filter_type.items_count}

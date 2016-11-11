@@ -1,0 +1,16 @@
+.search_form
+  = form_tag search_index_path, method: :get do
+    = text_field_tag :search, params[:search], placeholder: 'Item name'
+    = submit_tag 'Search'
+.search_results
+  - if params[:search]
+    %h4 Search results
+    %ul
+      - if @items.length > 0
+        - @items.each do |item|
+          %li
+            %img{ src: "#{item.icon_url}" }
+            = link_to item.name, game_item_path(item.game, item)
+      - else
+        "Sorry there is no items contains '#{params[:search]}'"
+    = will_paginate @items, renderer: BootstrapPagination::Rails

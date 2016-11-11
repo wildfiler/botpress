@@ -1,0 +1,5 @@
+.filter_value_field
+  = f.label :value
+  = f.text_field :value
+  = f.hidden_field :_destroy
+  = link_to 'Remove', '#', class: 'remove_filter_value'

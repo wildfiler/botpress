@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }/
+    %title Botpress
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+  %body
+    .header
+      .logo
+        BotPress
+      .navigation
+        %ul.menu
+          %li= link_to 'Games', root_path
+        %ul.login-bar
+          - if signed_in?
+            %li= link_to 'Profile', profile_path
+            %li= link_to 'Sign out', sign_out_path, method: :delete
+          - else
+            %li= link_to 'Sign in', sign_in_path
+            %li= link_to 'Sign up', sign_up_path
+    .content
+      = yield
+  = javascript_include_tag 'application'

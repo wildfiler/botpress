@@ -1,0 +1,12 @@
+.game
+  %h1
+    = @game.name
+  = render partial: 'items/filter', locals: { game: @game }
+  .items_list
+    %h3 Items
+    %ul
+      - @game.items.each do |item|
+        %li.item
+          %img{ src: "#{item.icon_thumb_url}" }
+          = link_to item.name, game_item_path(@game, item)
+    = will_paginate @game.items, renderer: BootstrapPagination::Rails

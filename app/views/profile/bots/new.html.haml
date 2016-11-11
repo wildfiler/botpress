@@ -1,0 +1,7 @@
+%h2 Add bot to your account
+= form_for @bot, url: profile_bots_path do |f|
+  = f.label :steam_id, 'Bot Steam ID'
+  = f.text_field :steam_id
+  = f.label :name,'Bot name'
+  = f.text_field :name
+  = f.submit 'Add'
