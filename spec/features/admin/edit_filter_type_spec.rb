@@ -27,6 +27,7 @@ describe 'admin visit admin/filter_type#edit page' do
       fill_in 'Value', with: new_filter_value_name
       click_on 'Update Filter type'
 
+      expect(page).to have_current_path(admin_filter_type_path(filter_type))
       expect(page).to have_content(new_filter_value_name)
     end
 
