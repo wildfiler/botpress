@@ -20,7 +20,7 @@ describe BotImporterJob, type: :job do
 
       BotImporterJob.perform_later(1)
 
-      expect(enqueued_jobs.last[:job]).to eq described_class
+      expect(enqueued_jobs.last[:job]).to eq BotImporterJob
     end
   end
 
