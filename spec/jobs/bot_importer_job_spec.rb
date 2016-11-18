@@ -25,6 +25,6 @@ describe BotImporterJob, type: :job do
   end
 
   it 'is in default queue' do
-    expect(BotImporterJob.new.queue_name).to eq('default')
+    expect(BotImporterJob.new.queue_name).to eq('bot_importer')
   end
 end

@@ -1,5 +1,5 @@
 class BotImporterJob < ApplicationJob
-  queue_as :default
+  queue_as :bot_importer
 
   def perform(bot_id)
     bot = Bot.find(bot_id)
