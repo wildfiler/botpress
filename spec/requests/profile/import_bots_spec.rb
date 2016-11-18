@@ -58,12 +58,17 @@ describe 'profile/import bots' do
     end
   end
 
+  context "when bot can't be found in database" do
+  end
+
   context 'when user not login' do
     it 'denies import' do
-      bot = create(:bot)
+      user = create(:user)
+      some_random_id = 30
+      login(user)
 
       expect do
-        post '/profile/import_bots', params: { bot_id: bot.id }
+        post '/profile/import_bots', params: { bot_id: some_random_id }
       end.not_to have_enqueued_job(BotImporterJob)
     end
   end
