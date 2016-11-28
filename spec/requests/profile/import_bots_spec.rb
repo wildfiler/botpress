@@ -10,7 +10,7 @@ describe 'profile/import bots' do
       login(user)
       expect do
         post '/profile/import_bots', params: { bot_id: bot.id }
-      end.to have_enqueued_job(BotImporterJob).with(bot.id.to_s)
+      end.to have_enqueued_job(BotImporterJob)
     end
 
     it 'redirects to profile_account_path' do
@@ -26,7 +26,7 @@ describe 'profile/import bots' do
   end
 
   context 'bot is not belong to user account' do
-    it "denies import" do
+    it 'denies import' do
       user = create(:user, account: create(:account))
       bot = create(:bot)
 
@@ -36,7 +36,7 @@ describe 'profile/import bots' do
       end.not_to have_enqueued_job(BotImporterJob)
     end
 
-    it 'redirect to profilre account path' do
+    it 'redirect to profilre a path' do
       user = create(:user, account: create(:account))
       bot = create(:bot)
 
@@ -59,6 +59,13 @@ describe 'profile/import bots' do
   end
 
   context "when bot can't be found in database" do
+    it 'denies import' do
+      login(create(:user, account: create(:account)))
+
+      expect do
+        post '/profile/import_bots', params: { bot_id: 30 }
+      end.not_to have_enqueued_job(BotImporterJob)
+    end
   end
 
   context 'when user not login' do
@@ -73,4 +80,3 @@ describe 'profile/import bots' do
     end
   end
 end
-
