@@ -11,6 +11,7 @@ describe 'user visit profile page' do
 
       fill_in 'Old password', with: old_password
       fill_in 'Password', with: new_password
+      fill_in 'Password confirmation', with: new_password
       click_on 'Change password'
 
       click_on 'Sign out'
@@ -20,6 +21,25 @@ describe 'user visit profile page' do
 
       click_button 'Sign in'
       expect(page).to have_content('Sign out')
+    end
+  end
+
+  describe 'with wrong confirmed password' do
+    it 'cannot change password' do
+      old_password = '12345678'
+      new_password = 'new_password'
+      wrong_confirm_password = 'very_new_password'
+      user = create(:user, password: old_password)
+      encrypted_password = user.encrypted_password
+
+      visit profile_path(as: user)
+      fill_in 'Old password', with: old_password
+      fill_in 'Password', with: new_password
+      fill_in 'Password confirmation', with: wrong_confirm_password
+      click_on 'Change password'
+
+      user.reload
+      expect(user.encrypted_password).to eq(encrypted_password)
     end
   end
 
@@ -33,6 +53,7 @@ describe 'user visit profile page' do
       visit profile_path(as: user)
       fill_in 'Old password', with: wrong_old_password
       fill_in 'Password', with: new_password
+      fill_in 'Password confirmation', with: new_password
       click_on 'Change password'
 
       user.reload
