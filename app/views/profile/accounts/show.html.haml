@@ -7,4 +7,7 @@
   - @bots.each do |bot|
     %li.bot
       = link_to bot.name, bot_path(bot)
+      = link_to 'Import bot data',
+        profile_import_bots_path(bot_id: bot.id),
+        method: :post
 = will_paginate @bots, renderer: BootstrapPagination::Rails

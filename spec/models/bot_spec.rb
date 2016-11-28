@@ -10,6 +10,7 @@ describe Bot do
   describe 'assocoations' do
     it { is_expected.to belong_to(:account) }
     it { is_expected.to have_many(:items) }
+    it { is_expected.to have_many(:import_statuses) }
   end
 
   describe 'slugs' do

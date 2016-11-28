@@ -1,4 +1,8 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  mount Sidekiq::Web, at: '/sidekiq'
+
   resources :games, only: [:show] do
     resources :items, only: [:show]
   end
@@ -29,6 +33,7 @@ Rails.application.routes.draw do
       resource :password, only: [:update]
       resource :account, only: [:show]
       resources :bots, only: [:new, :create]
+      resources :import_bots, only: [:create]
     end
   end
 
