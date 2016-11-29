@@ -2,7 +2,9 @@
   = f.label :email
   = f.text_field :email
   = f.label :password
+  = f.password_field :password
+  = f.label :password_confirmation
+  = f.password_field :password_confirmation
   = f.check_box :admin
   = f.label :admin, 'Promote to admin'
-  = f.password_field :password
   = f.submit submit
