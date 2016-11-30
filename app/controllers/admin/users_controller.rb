@@ -27,7 +27,7 @@ module Admin
 
     def update
       @user = User.find(params[:id])
-      params[:user].delete(:password) if params[:user][:password].blank?
+      delete_password_params if params[:user][:password].blank?
       if @user.update(user_params)
         redirect_to admin_user_path(@user)
       else
@@ -42,6 +42,10 @@ module Admin
                                    :password,
                                    :admin,
                                    :password_confirmation)
+    end
+
+    def delete_password_params
+      [:password, :password_confirmation].each { |param| params[:user].delete(param) }
     end
   end
 end
