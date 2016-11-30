@@ -19,6 +19,7 @@ describe 'admin visit user profile can edit profile' do
 
     visit edit_admin_user_path(user, as: admin_user)
     fill_in('Password', with: new_password)
+    fill_in('Password confirmation', with: new_password)
     click_on('Edit User')
     click_on('Sign out')
 
